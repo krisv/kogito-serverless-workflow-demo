@@ -1,0 +1,42 @@
+{
+  "apiVersion" : "serving.knative.dev/v1",
+  "kind" : "Service",
+  "metadata" : {
+    "annotations" : {
+      "app.quarkus.io/commit-id" : "5091a993061e56205d7f019ad090ecdb3535b950",
+      "app.quarkus.io/build-timestamp" : "2021-07-20 - 22:32:21 +0000"
+    },
+    "labels" : {
+      "app.kubernetes.io/name" : "kogito-demo-employee",
+      "app.kubernetes.io/version" : "1.0-SNAPSHOT"
+    },
+    "name" : "kogito-demo-employee"
+  },
+  "spec" : {
+    "template" : {
+      "metadata" : {
+        "labels" : {
+          "app.kubernetes.io/name" : "kogito-demo-employee",
+          "app.kubernetes.io/version" : "1.0-SNAPSHOT"
+        }
+      },
+      "spec" : {
+        "containers" : [ {
+          "image" : "quay.io/krisv/kogito-demo-employee:1.0-SNAPSHOT",
+          "name" : "kogito-demo-employee",
+          "ports" : [ {
+            "containerPort" : 8082,
+            "name" : "http1",
+            "protocol" : "TCP"
+          } ]
+        } ]
+      }
+    }
+  }
+}{
+  "apiVersion" : "v1",
+  "kind" : "ConfigMap",
+  "metadata" : {
+    "name" : "config-autoscaler"
+  }
+}
